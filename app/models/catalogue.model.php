@@ -10,7 +10,7 @@ class CatalogueModel {
 
     //devuelve el catalogo
     public function getCatalogue() {
-        $query = $this->db->prepare("SELECT C.name, G.gender, C.type, C.synopsis, C.duration, C.release_year FROM catalog C JOIN gender G ON C.id_gender = G.id_gender");                       
+        $query = $this->db->prepare("SELECT C.id_series_and_films, C.name, G.gender, C.type, C.synopsis, C.duration, C.release_year FROM catalog C JOIN gender G ON C.id_gender = G.id_gender");                       
         $query->execute();
         $catalogue = $query->fetchAll(PDO::FETCH_OBJ);
         
